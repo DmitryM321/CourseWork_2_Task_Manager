@@ -14,17 +14,10 @@ public abstract class Task  {
     private LocalDateTime dataTime;
 
     public Task(String title, Type type, String description, LocalDateTime dataTime) throws IncorrectArgumentExeption {
-        if  (title == null || title.isBlank() || title.isEmpty()) {
-            throw new IncorrectArgumentExeption("Ошибка ввода заголовка");
-        } else {
-            this.title = title;
-        }
+        setTitle(title);
         this.type = type;
         this.id = idGenerator++;
-        if (description == null || description.isBlank() || description.isEmpty()){
-            throw new IncorrectArgumentExeption("Ошибка описания задачи");
-        }
-        this.description = description;
+        setDescription(description);
         this.dataTime = dataTime;
     }
     public abstract boolean appearsln(LocalDate localDate);
@@ -40,17 +33,16 @@ public abstract class Task  {
     public LocalDateTime getDataTime() {
         return dataTime;
     }
-
     public void setTitle(String title) throws IncorrectArgumentExeption {
-        if (this.title == null || title.isBlank() || title.isEmpty()) {
-            throw new IncorrectArgumentExeption("Ошибка ввода заголовка");
+        if((title == null || title.isBlank() || title.isEmpty())) {
+        throw new RuntimeException("Проблемы с заголовком");
         } else {
-            this.title = title;
-        }
+        this.title = title;
     }
+        }
     public void setDescription(String description) throws IncorrectArgumentExeption {
-        if (this.description == null || description.isBlank() || description.isEmpty()) {
-            throw new IncorrectArgumentExeption("Ошибка описания задачи");
+        if((description == null || description.isBlank() || description.isEmpty())) {
+            throw new RuntimeException("Проблемы с описанием задачи");
         } else {
             this.description = description;
         }

@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.SortedMap;
 
 public class Main {
-    public static void main(String[] args) throws TaskNotFoundExeption, IncorrectArgumentExeption {
+    public static void main(String[] args)  {
     DailyTask dailyTask = new DailyTask("Ежедневная 1", Type.PERSONAL, "Задача 1", LocalDateTime.of(2023, 03, 15, 12, 12));
     WeeklyTask weeklyTask = new WeeklyTask("Еженедельная 2", Type.WORK, "Задача 2", LocalDateTime.of(2023, 03, 15, 13, 12));
     MonthlyTask monthlyTask = new MonthlyTask("Ежемесячная 3", Type.WORK, "Задача 3", LocalDateTime.of(2023, 03, 15, 14, 12));
@@ -27,6 +27,11 @@ public class Main {
     System.out.println(taskService.getAllByDate(LocalDate.of(2023, 04, 15)));
     System.out.println(taskService.getAllByDate(LocalDate.of(2024, 03, 14)));
     System.out.println("____________________");
+        try {
+            OneTimeTask oneTimeTask1 = new OneTimeTask("Разовая 6", Type.PERSONAL, " ", LocalDateTime.of(2023, 03, 15, 16, 12));
+        } catch (Exception e) {
+            System.out.println("Ошибка ввода");
+        }
 
        try {
            taskService.remove(0);

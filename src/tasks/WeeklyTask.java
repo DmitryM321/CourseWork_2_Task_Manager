@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class WeeklyTask extends Task {
-    public WeeklyTask(String title, Type type, String description, LocalDateTime dataTime) throws IncorrectArgumentExeption {
+    public WeeklyTask(String title, Type type, String description, LocalDateTime dataTime) {
         super(title, type, description, dataTime);
     }
 

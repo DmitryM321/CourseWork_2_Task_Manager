@@ -1,6 +1,6 @@
 package exeption;
 
-public class IncorrectArgumentExeption extends Exception{
+public class IncorrectArgumentExeption extends RuntimeException{
     private String argument;
 
     public IncorrectArgumentExeption(String message){
